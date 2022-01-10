@@ -5,6 +5,7 @@ import LogoComponent from "../subComponents/LogoComponent";
 import PowerButton from "../subComponents/PowerButton";
 import SocialIcons from "../subComponents/SocialIcons";
 import { YinYang } from "./AllSvgs";
+import Intro from "./Intro";
 
 const MainContainer = styled.div`
     background-color: ${props => props.theme.body};
@@ -132,7 +133,7 @@ const Main = () => {
             <DarkDiv click={click}/>
             <Container>
                 <PowerButton/>
-                <LogoComponent click={click}/>
+                <LogoComponent theme={click ? 'dark' : 'light'}/>
                 <SocialIcons theme={click ? 'dark' : 'light'}/>
                 
                 <Center click={click}>
@@ -171,6 +172,7 @@ const Main = () => {
                     </Skill>
                 </BottomBar>
             </Container>
+            {click ? <Intro click={click}/> : null}
         </MainContainer>
      );
 }
