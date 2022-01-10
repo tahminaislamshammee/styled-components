@@ -133,7 +133,7 @@ const Main = () => {
             <Container>
                 <PowerButton/>
                 <LogoComponent click={click}/>
-                <SocialIcons />
+                <SocialIcons theme={click ? 'dark' : 'light'}/>
                 
                 <Center click={click}>
                     <YinYang onClick={()=> handleClick()} width={click ? 120 : 200} height={click ? 120 : 200} fill="currentColor"/>
