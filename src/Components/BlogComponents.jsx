@@ -4,8 +4,10 @@ import styled from "styled-components";
 const Box = styled.a`
     width: calc(10rem + 15vw);
     text-decoration: none;
-    height: 20rem;
+    height: 17rem;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
 `
 const Image = styled.div`
     background-image: ${props => `url(${props.img})`};
@@ -22,6 +24,8 @@ const Title = styled.h3`
     padding-top: 1rem;
     font-family: 'Karla', sans-serif;
     font-weight: 700;
+    display: flex;
+    flex-grow: 1;
     border-bottom: 1px solid ${props => props.theme.text};
 `
 const BlogComponents = (props) => {
