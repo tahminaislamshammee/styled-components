@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Me from '../assets/Images/profile-img.png'
+import { motion } from "framer-motion";
 
-const Box = styled.div`
-    width: 55vw;
-    height: 40vh;
+const Box = styled(motion.div)`
+    width: 65vw;
+    height: 55vh;
     display: flex;
 
 
@@ -11,6 +12,7 @@ const Box = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    
     background-repeat: no-repeat;
     background-size:  100% 2px;
     background: linear-gradient(
@@ -34,16 +36,16 @@ const SubBox = styled.div`
     width: 50%;
     position: relative;
     display: flex;
-    transition: all 1s ease-in; 
+    transition: all 5s ease-in; 
 
 .pic {
     position: absolute;
     bottom: 0;
-   left: 50%;
-   transform: translate(-50%, 0%);
+    left: 50%;
+    transform: translate(-50%, 0%);
     width: 100%;
     height: auto;
-    transition: all 1s ease-in;
+    
 }
 `
 
@@ -64,7 +66,11 @@ const Text = styled.div`
 
 const Intro = () => {
     return ( 
-        <Box>
+        <Box 
+        initial={{height: 0}}
+        animate={{height: '55vh'}}
+        transition={{ type: 'spring', duration: 2, delay: 1}}
+        >
             <SubBox>
                 <Text>
                     <h1>Hi,</h1>
@@ -73,9 +79,13 @@ const Intro = () => {
                 </Text>
             </SubBox>
             <SubBox>
-                <div>
+                <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{ duration: 1, delay: 2}}
+                >
                     <img src={Me} alt="profile pic" className="pic"/>
-                </div>
+                </motion.div>
             </SubBox>
         </Box>
      );
