@@ -8,6 +8,14 @@ const Box = styled.a`
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    color: ${props=> props.theme.text};
+    border: 2px solid ${props=> props.theme.text};
+
+    &:hover {
+        color: ${props=> props.theme.body};
+        background-color: ${props=> props.theme.text};
+        transition: all .7s ease;
+    }
 `
 const Image = styled.div`
     background-image: ${props => `url(${props.img})`};
@@ -16,6 +24,10 @@ const Image = styled.div`
     background-size: cover;
     border: 1px solid transparent;
     background-position: center center;
+
+    ${Box}:hover & {
+        border: 2px solid ${props=> props.theme.body};
+    }
 `
 
 const Title = styled.h3`
@@ -27,6 +39,10 @@ const Title = styled.h3`
     display: flex;
     flex-grow: 1;
     border-bottom: 1px solid ${props => props.theme.text};
+
+    ${Box}:hover & {
+        border-bottom: 2px solid ${props=> props.theme.body};
+    }
 `
 const BlogComponents = (props) => {
    const {name, tags, date, imgSrc, link} = props.blog;
